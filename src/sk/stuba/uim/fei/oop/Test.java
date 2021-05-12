@@ -9,8 +9,7 @@ public class Test {
         JFrame F = new JFrame();
         F.setSize(300,300);
         JPanel p = new JPanel();
-        JButton b = new JButton("OK");
-        b.addActionListener(new ButtonPrinter());
+        MyButton b = new MyButton("OK");
         p.add(b);
         F.add(p);
         F.setVisible(true);
