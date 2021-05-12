@@ -9,6 +9,8 @@ public class TestFrame extends JFrame implements ActionListener {
 
     String Close = "Zavri";
     String novinka = "New";
+    public static int pocetFrameov = 0;
+    public static int umiestnenie = 10;
 
     public TestFrame(String nazov){
         super();
@@ -22,19 +24,27 @@ public class TestFrame extends JFrame implements ActionListener {
         p.add(b);
         p.add(NOVY);
         add(p);
+        setLocation(umiestnenie, umiestnenie);
 
         setVisible(true);
+        pocetFrameov++;
+        umiestnenie+=50;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         //getSource vrati cely objekt
         if(e.getActionCommand().equals(Close)){
-            dispose();
-            System.exit(0);
+           if(pocetFrameov==1) {
+               dispose();
+               System.exit(0);
+           }else{
+               dispose();
+           }
         }
         if(e.getActionCommand().equals(novinka)){
             new TestFrame("Nova");
+
         }
     }
 }
